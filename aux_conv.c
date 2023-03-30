@@ -31,8 +31,8 @@ int aux_conv(char c, va_list args)
 	/* if not match writes percent & next value */
 	if (c)
 	{
-		write(1, "%", 1);
-		write(1, &c, 1);
+		_write('%');
+		_write(c + '0');
 		return (2); /* 2 chars cuz wrote twice */
 	}
 	return (0);

@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			/* if all else fails simply write */
-			write(1, &format[i], 1);
+			_write(format[i]);
 			len++;
 		}
 	}

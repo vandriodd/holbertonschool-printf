@@ -8,9 +8,7 @@
 
 int print_char(va_list args)
 {
-	char c = va_arg(args, int);
-
-	write(1, &c, 1);
+	_write(va_arg(args, int));
 	return (1);
 }
 
@@ -32,7 +30,7 @@ int print_string(va_list args)
 
 	/* iterator = characters return */
 	for (; str[len]; len++)
-		write(1, &str[len], 1);
+		_write(str[len]);
 	return (len);
 }
 
@@ -46,6 +44,6 @@ int print_percent(va_list args)
 {
 	(void) args; /* gets rid of unnecessary argument */
 
-	write(1, "%", 1);
+	_write('%');
 	return (1);
 }
