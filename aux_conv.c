@@ -32,7 +32,7 @@ int aux_conv(char c, va_list args)
 	if (c)
 	{
 		_write('%');
-		_write(c + '0');
+		_write(c);
 		return (2); /* 2 chars cuz wrote twice */
 	}
 	return (0);
