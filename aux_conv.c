@@ -15,10 +15,12 @@ int aux_conv(char c, va_list args)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"i", print_number},
+		{"d", print_number},
 		{NULL, NULL},
 	}; /* format values */
 
-	while (i < 3)
+	while (i < 5)
 	{
 		/* iterates thru struct array for match */
 		if (*forms[i].cc == c)

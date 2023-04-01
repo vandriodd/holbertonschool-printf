@@ -14,6 +14,7 @@ int aux_conv(char c, va_list args);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
+int print_number(va_list args);
 
 /**
  * struct fInst - contains formatting instructions for the final str in stdout
