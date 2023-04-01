@@ -56,40 +56,44 @@ int print_percent(va_list args)
 
 int print_number(va_list args)
 {
-	long int number = va_arg(args, int), n = number, value = 1;
-	int len = 0;
-	char i;
+	int number = va_arg(args, int), len = 0, negFlag = 0; /* 0 false, 1 true */
+	unsigned int buff_num;
+	char buff[11];
+	char *pBuff = &buff[10];
+
+	*pBuff = '\0'; /* marks end of the array */
 
 	if (number < 0)
 	{
-		n *= -1;
-		number = -number;
-		_write('-');
-		len++;
+		buff_num = -number;
+		negFlag = 1;
 	}
+	else
+		buff_num = number;
 
-	if (number == 0)
+	if (buff_num == 0)
 	{
 		_write('0');
-		len++;
-		return (len);
+		return (1); /* only returns one character */
 	}
 
-	while (n > 0)
+	while (buff_num != 0)
 	{
-		n /= 10;
-		value *= 10;
+		*--pBuff = buff_num % 10 + '0'; /* stores number backwards in the array */
+		buff_num /= 10;
 	}
 
-	value /= 10; /* digit overshoots by one, fixes it */
-
-	while (value != 0)
+	if (negFlag)
 	{
-		i = number / value + '0'; /* obtains the 1st digit */
-		_write(i);
+		_write('-'); /* adds negative sign */
 		len++;
-		number %= value;
-		value /= 10; /* reduce digit */
+	}
+
+	while (*pBuff) /* until it reaches null */
+	{
+		_write(*pBuff);
+		pBuff++;
+		len++;
 	}
 	return (len);
 }
