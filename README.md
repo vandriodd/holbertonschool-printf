@@ -54,6 +54,9 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```C
 int _printf(const char *format, ...);
 ```
+
+### Flowchart
+![printf project flowc](https://user-images.githubusercontent.com/110431271/229380968-3d49f94e-5000-4386-a123-bae1132c005e.png)
 Like the standard printf function, _printf tracks the data associated with each argument behind the first argument and then formats the results using the rules described in the format string, which consists of a series of format conversions, each starting with the % followed _(ideally)_ by a conversion character _(see table below)_.
 All text between one conversion and another must be printed literally.
 
